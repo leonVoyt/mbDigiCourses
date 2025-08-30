@@ -1,69 +1,181 @@
-# React + TypeScript + Vite
+# 🎓 Courses Learning Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современная платформа для обучения с курсами, построенная на React, TypeScript и Redux Toolkit.
 
-Currently, two official plugins are available:
+## ✨ Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Аутентификация пользователей** - регистрация и вход по email/password
+- **Каталог курсов** - просмотр доступных курсов с описанием и ценами
+- **Покупка курсов** - система оплаты с обработкой ошибок
+- **Видеоплеер** - просмотр видео курсов с сохранением позиции воспроизведения
+- **Адаптивный дизайн** - работает на всех устройствах
+- **Валидация форм** - проверка ввода с отображением ошибок для каждого поля
 
-## Expanding the ESLint configuration
+## 🚀 Технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19 + TypeScript
+- **State Management**: Redux Toolkit
+- **Styling**: CSS3 с модульной архитектурой
+- **Build Tool**: Vite
+- **Validation**: Zod
+- **Package Manager**: npm
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Структура проекта
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/          # React компоненты
+│   ├── AuthForm.tsx    # Форма аутентификации
+│   ├── CourseList.tsx  # Список курсов
+│   └── VideoPlayer.tsx # Видеоплеер
+├── store/              # Redux store
+│   ├── slices/         # Redux slices
+│   │   ├── authSlice.ts    # Аутентификация
+│   │   ├── coursesSlice.ts # Курсы и покупки
+│   │   └── videoSlice.ts   # Видеоплеер
+│   ├── hooks.ts        # Redux hooks
+│   ├── selectors.ts    # Redux selectors
+│   └── store.ts        # Store конфигурация
+├── App.tsx             # Главный компонент
+└── main.tsx            # Точка входа
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Установка и запуск
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Предварительные требования
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 20.19+ или 22.12+
+- npm 9+
+
+### Установка зависимостей
+
+```bash
+npm install
 ```
+
+### Запуск в режиме разработки
+
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу: [http://localhost:5173](http://localhost:5173)
+
+### Сборка для продакшена
+
+```bash
+npm run build
+```
+
+### Предварительный просмотр сборки
+
+```bash
+npm run preview
+```
+
+### Проверка кода
+
+```bash
+npm run lint
+```
+
+## 🎯 Основные функции
+
+### Аутентификация
+
+- Валидация email и password в реальном времени
+- Отображение ошибок валидации под каждым полем
+- Сохранение состояния пользователя в localStorage
+
+### Курсы
+
+- Загрузка списка курсов с мок-данными
+- Отображение информации о курсе (название, описание, цена)
+- Система покупки с имитацией платежа
+- Обработка ошибок оплаты
+
+### Видеоплеер
+
+- Модальное окно для просмотра видео
+- Сохранение позиции воспроизведения в localStorage
+- Автоматическое восстановление позиции при повторном открытии
+
+## 🔧 Конфигурация
+
+### TypeScript
+
+- Строгая типизация включена
+- Конфигурация разделена на `tsconfig.app.json` и `tsconfig.node.json`
+
+### ESLint
+
+- Настроен для React и TypeScript
+- Правила для hooks и refresh
+
+### Vite
+
+- Быстрая сборка и HMR
+- Оптимизация для продакшена
+
+## 📱 Адаптивность
+
+Приложение адаптировано для различных размеров экранов:
+
+- Desktop (1100px+)
+- Tablet (768px - 1099px)
+- Mobile (< 768px)
+
+## 🎨 Стилизация
+
+- CSS модули с BEM методологией
+- Адаптивная сетка для курсов
+- Современный дизайн с hover эффектами
+- Цветовая схема Google Material Design
+
+## 🚧 Разработка
+
+### Добавление нового курса
+
+Отредактируйте массив `mockCourses` в `src/store/slices/coursesSlice.ts`:
+
+```typescript
+const mockCourses: Course[] = [
+  {
+    id: "3",
+    title: "New Course",
+    description: "Course description",
+    videoUrl: "https://example.com/video.mp4",
+    price: 39.99,
+    isPaymentFailed: false,
+  },
+  // ... существующие курсы
+];
+```
+
+### Добавление новых полей валидации
+
+Используйте Zod схему в `src/components/AuthForm.tsx`:
+
+```typescript
+const schema = z.object({
+  email: z.string().email("Invalid email format"),
+  password: z.string().min(6, "At least 6 characters"),
+  // Добавьте новые поля здесь
+});
+```
+
+## 📄 Лицензия
+
+Этот проект создан для образовательных целей.
+
+## 🤝 Вклад в проект
+
+1. Fork репозитория
+2. Создайте feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit изменения (`git commit -m 'Add some AmazingFeature'`)
+4. Push в branch (`git push origin feature/AmazingFeature`)
+5. Откройте Pull Request
+
+## 📞 Поддержка
+
+Если у вас есть вопросы или предложения, создайте issue в репозитории.
