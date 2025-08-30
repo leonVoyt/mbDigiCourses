@@ -65,8 +65,7 @@ export const handlePurchase = createAsyncThunk(
   "courses/purchase",
   async (courseId: string) => {
     await new Promise((r) => setTimeout(r, 500));
-    if (Math.random() > 0.1) {
-      // alert(`Payment with id ${courseId} failed`);
+    if (Math.random() < 0.2) {
       throw new Error(`Payment failed`);
     }
     return courseId;
